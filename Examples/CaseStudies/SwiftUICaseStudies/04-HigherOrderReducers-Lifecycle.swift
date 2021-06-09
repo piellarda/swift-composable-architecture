@@ -58,7 +58,7 @@ struct LifecycleDemoEnvironment {
 let lifecycleDemoReducer:
   Reducer<LifecycleDemoState, LifecycleDemoAction, LifecycleDemoEnvironment> = .combine(
     timerReducer.pullback(
-      state: \.count,
+      state: \LifecycleDemoState.count,
       action: /LifecycleDemoAction.timer,
       environment: { TimerEnvironment(mainQueue: $0.mainQueue) }
     ),
